@@ -41,19 +41,4 @@ for model, filename in zip(models, model_filenames):
 
     print(f"RMSD dla {filename} wynosi: {rmsd_value}")
 
-    # Skrypt PyMOLa
-    pymol_script = f"""
-    load {filename}
-    super {filename}, reference
-    color red, reference
-    color blue, {filename}
-    show cartoon
-    zoom
-    """
-
-    with open(f"pymol_script_{filename}.pml", "w") as f:
-        f.write(pymol_script)
-
-    # Uruchom PyMOLa z skryptem
-    pymol_path = "D:\\PyMOL\\PyMOLWin.exe"
-    os.system(f"{pymol_path} -c pymol_script_{filename}.pml")
+    
